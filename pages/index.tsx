@@ -4,6 +4,7 @@ import { BlogData, BlogDataListProps } from '../types/blog';
 import { GetBlogs } from '../apis/blog';
 import Layout from '../layouts/Content';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export const getStaticProps: GetStaticProps = async (_context) => {
   // fetch list of posts
@@ -16,6 +17,7 @@ export const getStaticProps: GetStaticProps = async (_context) => {
 };
 
 const IndexPage: NextPage<BlogDataListProps> = ({ blogs }: BlogDataListProps) => {
+  const router = useRouter();
   return (
     <Layout>
       {/* Profile */}
@@ -36,7 +38,7 @@ const IndexPage: NextPage<BlogDataListProps> = ({ blogs }: BlogDataListProps) =>
 
       {/* Blogs */}
       <div>
-        <h2 className="text-2xl font-semibold text-gray-800">Blogs</h2>
+        <h2 className="text-2xl font-semibold text-gray-800">Recent Blogs</h2>
       </div>
       <div>
         {blogs.map((blog) => (
@@ -58,9 +60,7 @@ const IndexPage: NextPage<BlogDataListProps> = ({ blogs }: BlogDataListProps) =>
         <div className="flex items-center justify-center mt-12">
           <button
             className="flex items-center text-gray-600 hover:underline hover:text-gray-500"
-            // TODO: view moreで要素があれば表示する
-            // onClick={() => {}}
-          >
+            onClick={() => router.push('/blog')}>
             <span>View More</span>
           </button>
         </div>

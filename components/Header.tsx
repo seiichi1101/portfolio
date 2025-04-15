@@ -9,14 +9,11 @@ const Header: React.FC = () => {
         <Seiichi className="mx-2" />
       </Link>
       <div>
-        <Link href="/">
-          <span className="text-white mx-4">hoge</span>
+        <Link href="/blog">
+          <span className="text-white mx-4">Blog</span>
         </Link>
-        <Link href="/">
-          <span className="text-white mx-4">hoge</span>
-        </Link>
-        <Link href="/">
-          <span className="text-white mx-4">hoge</span>
+        <Link href="/showcase">
+          <span className="text-white mx-4">Showcase</span>
         </Link>
       </div>
     </nav>
